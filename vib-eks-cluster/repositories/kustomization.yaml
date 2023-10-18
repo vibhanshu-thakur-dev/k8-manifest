@@ -5,5 +5,4 @@ metadata:
   namespace: flux-system
 resources:
   - kong_helm/repository.yaml
-  - kong_helm/chart.yaml
   - kong_helm/release.yaml
