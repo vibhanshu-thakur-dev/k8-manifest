@@ -3,7 +3,6 @@ kind: Kustomization
 metadata:
   name: kong
   namespace: flux-system
-namespace: kong
 resources:
   - kong_helm/repository.yaml
   - kong_helm/chart.yaml
