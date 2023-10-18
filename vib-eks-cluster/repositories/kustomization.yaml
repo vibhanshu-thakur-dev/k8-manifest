@@ -7,5 +7,4 @@ namespace: kong
 resources:
   - kong-helm/repository.yaml
   - kong-helm/chart.yaml
-  - repository.yaml
-  - release.yaml
+  - kong-helm/release.yaml
