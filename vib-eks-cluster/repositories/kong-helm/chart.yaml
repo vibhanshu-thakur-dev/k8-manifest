@@ -1,0 +1,11 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmChart
+metadata:
+  name: kong
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  chart: ingress
+  sourceRef:
+    kind: HelmRepository
+    name: kong
