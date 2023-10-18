@@ -5,18 +5,16 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  url: https://charts.konghq.com
-  
+  url: https://charts.konghq.com  
 ---
-apiVersion: kustomize.toolkit.fluxcd.io/v1
-kind: Kustomization
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmChart
 metadata:
   name: kong
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./charts/ingress
-  prune: true
+  interval: 1m0s
+  chart: kong/ingress
   sourceRef:
     kind: HelmRepository
     name: kong
