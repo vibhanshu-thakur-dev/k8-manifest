@@ -22,3 +22,4 @@ spec:
   interval: 1m
   releaseName: kong
   targetNamespace: kong
+  
