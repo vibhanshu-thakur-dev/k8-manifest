@@ -4,5 +4,19 @@ metadata:
   name: kong
   namespace: flux-system
 spec:
-  interval: 5m
+  interval: 1m
   url: https://charts.konghq.com
+  
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: kong
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./charts/ingress
+  prune: true
+  sourceRef:
+    kind: HelmRepository
+    name: kong
