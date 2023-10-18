@@ -9,4 +9,4 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: echoserver
+    name: lux-system
