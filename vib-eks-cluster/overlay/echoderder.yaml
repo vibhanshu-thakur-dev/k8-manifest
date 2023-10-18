@@ -20,7 +20,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./vib-eks-cluster
+  path: ./templates/echoderder
   prune: true
   sourceRef:
     kind: GitRepository
