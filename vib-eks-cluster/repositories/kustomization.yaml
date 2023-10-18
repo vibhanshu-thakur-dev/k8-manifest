@@ -18,8 +18,7 @@ spec:
       chart: ingress
       sourceRef:
         kind: HelmRepository
-        name: kong
+        name: kongs
   interval: 1m
   releaseName: kong
   targetNamespace: kong
-  
