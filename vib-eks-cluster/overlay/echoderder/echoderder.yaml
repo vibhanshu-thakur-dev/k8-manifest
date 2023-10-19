@@ -1,0 +1,12 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: echoderder
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./templates/echoderder
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: echoderder
