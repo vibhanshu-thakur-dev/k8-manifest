@@ -4,4 +4,4 @@ resources:
 - overlay/echoserver/kustomization.yaml
 - overlay/echoderder/kustomization.yaml
 - overlay/echoberber/kustomization.yaml
-- overlay/kong/kustomization.yaml
+- overlay/kong_helm/kustomization.yaml
