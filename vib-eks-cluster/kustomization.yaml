@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
 - overlay/echoserver/kustomization.yaml
 - overlay/echoderder/kustomization.yaml
-- overlay/echoberber/kustomization.yaml
+- overlay/echoberber/kustomization1.yaml
 - overlay/kong_helm/kustomization.yaml
