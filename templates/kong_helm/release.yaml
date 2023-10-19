@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: ingress
+      chart: kong
       sourceRef:
         kind: HelmRepository
         name: kong
