@@ -4,6 +4,6 @@ metadata:
   name: kong
   namespace: flux-system
 resources:
+  - namespace.yaml
   - release.yaml
   - repository.yaml
-  - namespace.yaml

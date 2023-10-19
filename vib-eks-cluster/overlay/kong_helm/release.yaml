@@ -15,11 +15,8 @@ spec:
   targetNamespace: kong
   # Default values
   # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
-#  values:
-#    redis:
-#      enabled: true
-#      repository: public.ecr.aws/docker/library/redis
-#      tag: 7.0.6
-#    ingress:
-#      enabled: true
-#      className: nginx
+  values:
+    proxy:
+      annotations:
+        "service.beta.kubernetes.io/aws-load-balancer-type": "nlb"
+        "service.beta.kubernetes.io/aws-load-balancer-internal": "false"        

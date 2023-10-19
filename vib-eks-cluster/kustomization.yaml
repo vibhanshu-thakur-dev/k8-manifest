@@ -7,6 +7,4 @@ resources:
 - overlay/echoserver/echoserver.yaml
 - overlay/echoderder/echoderder.yaml
 - overlay/echoberber/echoberber.yaml
-- overlay/kong_helm/repository.yaml
-- overlay/kong_helm/release.yaml
-- overlay/kong_helm/namespace.yaml
+- overlay/kong_helm
