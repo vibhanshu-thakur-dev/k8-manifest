@@ -7,7 +7,3 @@ resources:
   - release.yaml
   - repository.yaml
   - namespace.yaml
-patches:
-  - path: podinfo-values.yaml
-    target:
-      kind: HelmRelease
