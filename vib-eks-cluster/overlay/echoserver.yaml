@@ -1,12 +1,15 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: echoderder
+  name: echoserver
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./templates/echoderder
+  interval: 1m0s
+  path: ./templates/echoserver
   prune: true
   sourceRef:
     kind: GitRepository
-    name: echoderder
+    name: flux-system
+  postBuild: 
+    substitute:
+      instance_name: "echoserver"

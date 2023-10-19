@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "${instance_name:=echoserver}"
+spec:
+  ingressClassName: kong
+  rules:
+  - http:
+      paths:
+      - path: "/${instance_name:=echoserver}"
+        pathType: Prefix
+        backend:
+          service:
+            name: "${instance_name:=echoserver}"
+            port:
+              number: 80
