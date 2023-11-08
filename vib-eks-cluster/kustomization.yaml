@@ -4,5 +4,4 @@ resources:
 - overlay/echoserver.yaml
 - overlay/echoderder.yaml
 - overlay/echoberber.yaml
-- overlay/kong-gw.yaml
 - overlay/nginx.yaml
