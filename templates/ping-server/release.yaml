@@ -1,0 +1,23 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ping-server
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: echoserver
+      sourceRef:
+        kind: HelmRepository
+        name: vrt-repo
+  interval: 1m
+  releaseName: ping-server
+  # Default values
+  # https://github.com/stefanprodan/podinfo/blob/master/charts/podinfo/values.yaml
+ # values:
+ #   proxy:
+ #     annotations:
+   #     "service.beta.kubernetes.io/aws-load-balancer-type": "nlb"
+  #      "service.beta.kubernetes.io/aws-load-balancer-internal": "false"
+ #       "external-dns.alpha.kubernetes.io/hostname": "kong.vt.dev.quaddemo.co.uk"
+#        "external-dns.alpha.kubernetes.io/ttl": "60"

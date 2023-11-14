@@ -5,3 +5,4 @@ resources:
 - overlay/echoderder.yaml
 - overlay/echoberber.yaml
 - overlay/nginx.yaml
+- overlay/ping-server.yaml
