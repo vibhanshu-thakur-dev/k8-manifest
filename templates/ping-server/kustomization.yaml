@@ -4,6 +4,5 @@ metadata:
   name: ping-server
   namespace: flux-system
 resources:
-  - namespace.yaml
   - release.yaml
   - repository.yaml
