@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: "${instance_name:=echoserver}"
 spec:
-  replicas: 5
+  replicas: 1
   selector:
     matchLabels:
       app: "${instance_name:=echoserver}"
