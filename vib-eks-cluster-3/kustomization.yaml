@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- overlay/echoserver.yaml
+- overlay/echoderder.yaml
+- overlay/echoberber.yaml
+- overlay/nginx.yaml
+- overlay/ping-server.yaml
