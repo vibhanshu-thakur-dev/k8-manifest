@@ -14,3 +14,4 @@ spec:
             name: "${instance_name:=echoserver}"
             port:
               number: 80
+              
