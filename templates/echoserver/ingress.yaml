@@ -20,4 +20,4 @@ spec:
   tls:
     - hosts:
       - kong.eks.vt.dev.quaddemo.co.uk
-      secretName: kong.eks.vt.dev.quaddemo.co.uk-certificate-secret
+      secretName: default/kong.eks.vt.dev.quaddemo.co.uk-certificate-secret
