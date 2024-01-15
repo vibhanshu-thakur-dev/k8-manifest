@@ -17,4 +17,7 @@ spec:
             name: "${instance_name:=echoserver}"
             port:
               number: 80
-              
+  tls:
+    - hosts:
+      - kong.eks.vt.dev.quaddemo.co.uk
+      secretName: kong.eks.vt.dev.quaddemo.co.uk-certificate-secret
