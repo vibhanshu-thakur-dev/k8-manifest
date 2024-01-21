@@ -15,6 +15,13 @@ spec:
       containers:
       - image: ealen/echo-server:latest
         imagePullPolicy: IfNotPresent
+        resources:
+          limits:
+            memory: "200Mi"   # Maximum memory usage
+            cpu: "200m"       # Maximum CPU usage
+          requests:
+            memory: "200Mi"   # Initial memory allocation
+            cpu: "100m"       # Initial CPU allocation
         name: "${instance_name:=echoserver}"
         ports:
         - containerPort: 80
