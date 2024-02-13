@@ -20,7 +20,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./vib-eks-cluster-1
+  path: ./vib-eks-cluster-2
   prune: true
   sourceRef:
     kind: GitRepository
