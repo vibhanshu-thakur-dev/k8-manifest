@@ -5,9 +5,9 @@ metadata:
   annotations: 
     "cert-manager.io/cluster-issuer": "letsencrypt-cert-issuer"
 spec:
-  ingressClassName: kong
+  ingressClassName: traefik
   rules:
-  - host: kong.eks.vt.dev.quaddemo.co.uk
+  - host: echo.home-network.sort-tree.com
     http:
       paths:
       - path: "/${instance_name:=echoserver}"
@@ -17,7 +17,3 @@ spec:
             name: "${instance_name:=echoserver}"
             port:
               number: 80
-  tls:
-    - hosts:
-      - kong.eks.vt.dev.quaddemo.co.uk
-      secretName: kong.eks.vt.dev.quaddemo.co.uk-certificate-secret
