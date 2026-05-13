@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: echo-poster-api
-          image: vibhanshuthakurdocker/echo-poster-api:1.0.2
+          image: vibhanshuthakurdocker/echo-poster-api:1.0.1
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
