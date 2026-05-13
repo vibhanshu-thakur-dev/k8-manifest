@@ -4,7 +4,7 @@ metadata:
   name: echo-poster-api
   namespace: echo-poster
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: echo-poster-api
