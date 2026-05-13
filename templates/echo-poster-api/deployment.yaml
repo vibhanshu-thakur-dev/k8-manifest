@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-poster-api
+  namespace: echo-poster
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo-poster-api
+  template:
+    metadata:
+      labels:
+        app: echo-poster-api
+    spec:
+      containers:
+        - name: echo-poster-api
+          image: vibhanshuthakurdocker/echo-poster-api:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"

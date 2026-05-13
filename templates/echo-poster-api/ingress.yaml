@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: echo-poster-api
+  namespace: echo-poster
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: echoposter.sort-tree.org
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: echo-poster-api
+                port:
+                  number: 80
