@@ -32,7 +32,7 @@ spec:
       containers:
         - name: vendor-xapi
           # Replace with your registry, e.g. myregistry.azurecr.io/vendor-xapi:1.0.0
-          image: vendor-xapi:1.0.0
+          image: vibhanshuthakurdocker/vendor-xapi:1.0.0
           imagePullPolicy: Always
           ports:
             - name: http
