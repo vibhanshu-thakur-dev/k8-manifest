@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana
+  namespace: monitoring
+  labels:
+    app: grafana
+  annotations:
+    # ── traefik ingress controller ─────────────────────────────────────────────
+    traefik.ingress.kubernetes.io/proxy-body-size: "10m"
+    traefik.ingress.kubernetes.io/proxy-read-timeout: "60"
+    traefik.ingress.kubernetes.io/proxy-send-timeout: "60"
+
+    # Preserve the raw request body so HMAC signatures can be validated.
+    # Without this, body buffering can alter content before it reaches the pod.
+    traefik.ingress.kubernetes.io/proxy-buffering: "off"
+
+    # ── TLS / cert-manager (uncomment if using cert-manager) ─────────────────
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: traefik   # Replace with your ingress class, e.g. nginx or traefik
+  # ── TLS (uncomment and set secretName once cert-manager is configured) ─────
+  # tls:
+  #   - hosts:
+  #       - grafana.sort-tree.org
+  #     secretName: grafana-tls
+  rules:
+    - host: grafana.sort-tree.org   # Replace with your actual hostname
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: grafana
+                port:
+                  number: 80
