@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: "integrations"
   labels:
-    name: "${instance_name:=echoserver}"
+    name: "${instance_name:=integrations}"
