@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vendor-xapi
+  namespace: integrations
+  labels:
+    app: vendor-xapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: vendor-xapi
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0        # Zero-downtime rolling deploy
+  template:
+    metadata:
+      labels:
+        app: vendor-xapi
+    spec:
+      # Ensure pods spread across nodes for HA
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app: vendor-xapi
+
+      containers:
+        - name: vendor-xapi
+          # Replace with your registry, e.g. myregistry.azurecr.io/vendor-xapi:1.0.0
+          image: vendor-xapi:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8081
+              protocol: TCP
+
+          # All non-sensitive config from ConfigMap
+          envFrom:
+            - configMapRef:
+                name: vendor-xapi-config
+            - secretRef:
+                name: vendor-xapi-secrets
+
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+
+          # Swagger UI endpoint is always served — use it as health signal
+          readinessProbe:
+            httpGet:
+              path: /api-docs
+              port: 8081
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /api-docs
+              port: 8081
+            initialDelaySeconds: 30
+            periodSeconds: 30
+            failureThreshold: 3
+
+          # Graceful shutdown — allow in-flight requests to complete
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/bin/sh", "-c", "sleep 5"]
+
+      terminationGracePeriodSeconds: 30

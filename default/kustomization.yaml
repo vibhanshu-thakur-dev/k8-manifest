@@ -7,3 +7,4 @@ resources:
 - overlay/nginx.yaml
 - overlay/ping-server.yaml
 - overlay/echo-poster.yaml
+- overlay/vendor-xapi.yaml

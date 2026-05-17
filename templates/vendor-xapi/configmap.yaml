@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: vendor-xapi-config
+  namespace: integrations
+  labels:
+    app: vendor-xapi
+data:
+  # ── Server ─────────────────────────────────────────────────────────────────
+  PORT: "8081"
+  NODE_ENV: "production"
+
+  # ── ActiveMQ (STOMP) ────────────────────────────────────────────────────────
+  ACTIVEMQ_HOST: "activemq"        # K8s service name of your ActiveMQ instance
+  ACTIVEMQ_PORT: "61613"
+  ACTIVEMQ_USERNAME: "admin"
+
+  # ── Worldpay ────────────────────────────────────────────────────────────────
+  WORLDPAY_TLD: ".worldpay.com"
+  WORLDPAY_EXPECTED_MID: "CSUKNICEIC"
+
+  # ── Feature flags ───────────────────────────────────────────────────────────
+  FEATURE_SHOPIFY_CONTACTS: "true"
+  FEATURE_SHOPIFY_ORDERS: "true"
+  FEATURE_SHOPIFY_PAYMENTS: "true"
+  FEATURE_SAGE_CUSTOMERS: "true"
+
+  # ── Shopify GID prefixes ────────────────────────────────────────────────────
+  SHOPIFY_COMPANY_GID_PREFIX: "gid://shopify/Company/"
+  SHOPIFY_CUSTOMER_GID_PREFIX: "gid://shopify/Customer/"
+
+  # ── Sage ────────────────────────────────────────────────────────────────────
+  # The Sage contact name of the MuleSoft service user — events modified by
+  # this user are skipped (infinite-loop guard), except ORDER_ENTRY_DOCUMENT.
+  SAGE_MULE_SERVICE_USER: "CertWebServicesContact"
