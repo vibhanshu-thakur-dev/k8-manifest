@@ -7,4 +7,6 @@ resources:
 - ingress.yaml
 - secret.yaml
 - configmap.yaml
+- activemq-deployment.yaml
+- activemq-service.yaml
 namespace: "integrations"

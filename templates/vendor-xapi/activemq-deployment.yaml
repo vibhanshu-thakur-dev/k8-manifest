@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: activemq
+  namespace: integrations
+  labels:
+    app: activemq
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: activemq
+  template:
+    metadata:
+      labels:
+        app: activemq
+    spec:
+      containers:
+      - name: activemq
+        image: apache/activemq-classic:latest
+        ports:
+        - name: stomp
+          containerPort: 61613
+          protocol: TCP
+        - name: web-console
+          containerPort: 8161
+          protocol: TCP
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8161
+          initialDelaySeconds: 60
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8161
+          initialDelaySeconds: 30
+          periodSeconds: 10
