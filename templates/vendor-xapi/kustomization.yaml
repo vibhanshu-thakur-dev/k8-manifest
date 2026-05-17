@@ -9,5 +9,4 @@ resources:
 - configmap.yaml
 - activemq-deployment.yaml
 - activemq-service.yaml
-- grafana-ingress.yaml
 namespace: "integrations"
