@@ -9,3 +9,4 @@ resources:
 - overlay/echo-poster.yaml
 - overlay/vendor-xapi.yaml
 - overlay/grafana.yaml
+- overlay/kong-ingress.yaml
