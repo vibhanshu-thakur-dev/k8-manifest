@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: kong-proxy.home-network.sort-tree.com
+  - host: api.sort-tree.org
     http:
       paths:
       - path: /
